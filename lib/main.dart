@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
             right: 20.0,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.black, // Black background
+                backgroundColor: Colors.black, // Black background
               ),
               onPressed: () {
                 Navigator.push(
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => LoginPage()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Click Here ',
                 style: TextStyle(color: Colors.orange), // Indigo text
               ),
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 50), // Espace ajouté au-dessus de l'image
+            const SizedBox(height: 50), // Espace ajouté au-dessus de l'image
 
             // Circular Image above the Text
             Padding(
@@ -83,28 +84,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             // Text above Username TextField
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: RichText(
-                text: TextSpan(
-                  text: 'Welcome ',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'Member !',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+            const Padding(
+              padding: EdgeInsets.only(bottom: 16.0),
+              child: Text("Welcome Member !", 
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
                 ),
-              ),
+              )
             ),
 
 
@@ -112,9 +100,9 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 controller: usernameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Username',
                   hintStyle: TextStyle(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
@@ -131,10 +119,10 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Password',
                   hintStyle: TextStyle(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
@@ -161,14 +149,14 @@ class _LoginPageState extends State<LoginPage> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Error'),
-                      content: Text('Invalid username or password'),
+                      title: const Text('Error'),
+                      content: const Text('Invalid username or password'),
                       actions: [
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('OK'),
+                          child: const Text('OK'),
                         ),
                       ],
                     ),
@@ -176,9 +164,9 @@ class _LoginPageState extends State<LoginPage> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.black, // White background
+                backgroundColor: Colors.black, 
               ),
-              child: Text('Login', style: TextStyle(color: Colors.orange)), // Indigo text
+              child: const Text('Login', style: TextStyle(color: Colors.orange)), // Indigo text
             ),
           ],
         ),
@@ -195,8 +183,8 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Sup\'Com Clubs',
+        title: const Text(
+          "Sup'Com Clubs",
           style: TextStyle(color: Colors.orange, fontSize: 24.0),
         ),
         backgroundColor: Colors.black,
@@ -206,13 +194,13 @@ class WelcomePage extends StatelessWidget {
         color: Colors.black,
         child: ListView(
           children: [
-            _buildImageCard(context, 'assets/images/team-removebg-preview (2)-removebg-preview.jpg', 'Team sup\'com'),
-            _buildImageCard(context, 'assets/images/cyber-removebg-preview.jpg', 'Cyber Security'),
-            _buildImageCard(context, 'assets/images/gdsc-removebg-preview.jpg', 'GDSC'),
-            _buildImageCard(context, 'assets/images/acm-removebg-preview.jpg', 'ACM'),
-            _buildImageCard(context, 'assets/images/ieee-removebg-preview.jpg', 'IEEE'),
-            _buildImageCard(context, 'assets/images/junior-removebg-preview.jpg', 'JUNIOR Entreprise'),
-            _buildImageCard(context, 'assets/images/nateg-removebg-preview.jpg', 'NATEG'),
+            _buildImageCard(context, 'assets/images/team-preview.jpg', "Team sup'com"),
+            _buildImageCard(context, 'assets/images/cyber-preview.jpg', 'Cyber Security'),
+            _buildImageCard(context, 'assets/images/gdsc-preview.jpg', 'GDSC'),
+            _buildImageCard(context, 'assets/images/acm-preview.jpg', 'ACM'),
+            _buildImageCard(context, 'assets/images/ieee-preview.jpg', 'IEEE'),
+            _buildImageCard(context, 'assets/images/junior-preview.jpg', 'JUNIOR Entreprise'),
+            _buildImageCard(context, 'assets/images/nateg-preview.jpg', 'NATEG'),
           ],
         ),
       ),
@@ -267,10 +255,10 @@ class _DetailsPageState extends State<DetailsPage> {
       appBar: AppBar(
         title: Text(
           widget.clubName,
-          style: TextStyle(color: Colors.orange, fontSize: 24.0),
+          style: const TextStyle(color: Colors.orange, fontSize: 24.0),
         ),
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.orange), // Set the color of the back arrow to black
+        iconTheme: const IconThemeData(color: Colors.orange), // Set the color of the back arrow to black
       ),
       backgroundColor: Colors.black, // Set the background color to orange
       body: Column(
@@ -278,49 +266,49 @@ class _DetailsPageState extends State<DetailsPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Club Image
-          Container(
+          SizedBox(
             height: 150.0,
             width: 150.0,
             child: Hero(
               tag: widget.imagePath,
               child: Image.asset(
-                widget.imagePath,
-                fit: BoxFit.cover,
+                  widget.imagePath,
+                  fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(height: 20.0), // Add some space between the image and text
+          const SizedBox(height: 20.0), // Add some space between the image and text
           Expanded(
             child: Center(
               // Center widget to center its child vertically
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     'Enter password to proceed:',
                     style: TextStyle(fontSize: 25.0, color: Colors.orange),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   // Password TextField
-                  Container(
+                  SizedBox(
                     width: 200.0,
                     child: TextField(
-                      style: TextStyle(color: Colors.orange),
+                      style: const TextStyle(color: Colors.orange),
                       controller: passwordController,
                       obscureText: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Password',
                         hintStyle: TextStyle(color: Colors.orange),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: BorderSide(color: Colors.white),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: BorderSide(color: Colors.white),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 25.0),
+                  const SizedBox(height: 25.0),
                   // Submit Button
                   ElevatedButton(
                     onPressed: () {
@@ -337,7 +325,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: Text('Error'),
+                            title: const Text('Error'),
                             content: Text('Incorrect password'),
                             actions: [
                               TextButton(
@@ -352,7 +340,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.orange,
+                      backgroundColor: Colors.orange,
                     ),
                     child: Text('Click me ', style: TextStyle(color: Colors.black)),
                   ),
